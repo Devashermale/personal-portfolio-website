@@ -5,7 +5,7 @@ function Projects() {
   return (
     <div>
       <Navbar/>
-        <div className=" m-6 bg-slate-50">
+        <div className=" m-6  md:flex-1 sm:flex-1 bg-slate-50">
         <h2 className=" text-3xl text-center font-bold">projects</h2>
         <h2 className=" block font-bold text-2xl text-indigo-600" >
           Visitor Pass Management System | MERN Stack | March 2026

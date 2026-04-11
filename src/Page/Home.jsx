@@ -14,7 +14,7 @@ function Home() {
     <div>
       <Navbar />
       <div>
-        <div className=" grid  grid-cols-2 bg-slate-50 ">
+        <div className=" grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 bg-slate-50 ">
           <div className=" flex flex-col items-center justify-center w-full h-full ">
             <h1 className=" text-4xl font-bold text-slate-900">
               

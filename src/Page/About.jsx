@@ -6,8 +6,8 @@ function About() {
     
         <div>
           <Navbar/>
-        <div className=" grid grid-cols-2  p-14 m-18 ">
-          <h1 className="text-3xl flex items-center justify-center font-bold  bg-indigo-50  ml-6">
+        <div className=" grid lg:grid-cols-2 md:grid-cols-2 md:p-14 md:m-18 sm:grid-cols-2  lg:p-14 lg:m-18 ">
+          <h1 className="text-3xl flex items-center justify-center font-bold h-full  bg-indigo-50  ml-6">
             About me
           </h1>
           <p className="  ml-20">
@@ -21,7 +21,7 @@ function About() {
             further honing my skills in modern web development.
           </p>
         </div>
-        <div className=" grid grid-cols-2  m-6  ">
+        <div className=" grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2   m-6  ">
           <div className="  gap-6 px-3 py-1 rounded-md text-sm font-medium">
             <div className=" ">
               <button className=" border-2 p-2 rounded-lg m-2 text-indigo-700 border-indigo-100">
@@ -58,7 +58,7 @@ function About() {
             </div>
           </div>
 
-          <h1 className=" flex items-center justify-center text-3xl font-bold ml-6 h-70 bg-indigo-50">
+          <h1 className=" flex items-center justify-center text-3xl font-bold ml-6  bg-indigo-50">
             skills
           </h1>
         </div>
