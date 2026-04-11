@@ -31,7 +31,7 @@ function Home() {
             <div className=" flex items-center justify-center size-16 " >   
             <a className=" size-20" href="https://github.com/Devashermale"><FontAwesomeIcon icon={faSquareGithub} size="2xl"/></a>
             <a className=" size-20" href="https://www.instagram.com/devashermale/"><FontAwesomeIcon icon={faInstagram} size="2xl" /> </a>
-            <a className=" size-20" href="www.linkedin.com/in/devashermale"><FontAwesomeIcon icon={faSquareLinkedin}  size="2xl" /></a>
+            <a className=" size-20" href="https://www.linkedin.com/in/devashermale/"><FontAwesomeIcon icon={faSquareLinkedin}  size="2xl" /></a>
             </div>
         
             <button className=" border-2 p- bg-indigo-600 text-white hover:bg-indigo-700 hover:shadow-lg transition-all p-2 rounded">
