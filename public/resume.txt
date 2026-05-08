@@ -1,13 +1,44 @@
-Devidas Shermale
+DEVIDAS SHERMALE
 Full Stack MERN Developer
-
-GitHub: https://github.com/Devashermale
 LinkedIn: https://www.linkedin.com/in/devashermale/
+GitHub: https://github.com/Devashermale
+Email: devislive722@gmail.com| Phone:+919356614673 | Location:nashik,maharashtra
 
-EXPERIENCE / PROJECTS:
-- Visitor Pass Management System | MERN Stack | March 2026
-- Workout Buddy | MERN Stack | February 2026
-- To-Do List Application | Full-Stack | February 2026
+PROFESSIONAL SUMMARY
+--------------------------------------------------------------------------------
+Dedicated Full Stack Developer with a strong focus on building scalable web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js). Experienced in designing real-world solutions including management systems and real-time social applications. Passionate about writing clean, efficient code and eager to contribute to impactful projects while continuing to master modern web development.
 
-SKILLS:
-MongoDB, Express.js, React.js, Node.js, Tailwind CSS, JavaScript, HTML, Bootstrap
+TECHNICAL SKILLS
+--------------------------------------------------------------------------------
+Frontend Technologies: React.js, HTML5, CSS3, Tailwind CSS, Bootstrap
+Backend Technologies: Node.js, Express.js, RESTful APIs
+Database Systems: MongoDB
+Programming Languages: JavaScript
+Tools & Platforms: Git, GitHub, VS Code, Postman, WebSockets (Socket.io)
+
+EDUCATION
+--------------------------------------------------------------------------------
+Diploma in Computer Engineering
+[Institution Name] - [Graduation Year]
+
+PROJECT EXPERIENCE
+--------------------------------------------------------------------------------
+Visitor Pass Management System | Full Stack Developer | March 2026
+MERN Stack (MongoDB, Express, React, Node)
+- Engineered a secure QR Code ecosystem for an asynchronous check-in process, generating unique encrypted strings for visitor validation.
+- Implemented an automated PDF generation feature using document generation libraries to dynamically create visitor passes with injected data.
+- Developed a Real-Time Monitoring Dashboard using WebSockets to provide instant updates on building occupancy and expected arrivals.
+
+Workout Buddy | Full Stack Developer | February 2026
+MERN Stack (MongoDB, Express, React, Node)
+- Built a social fitness ecosystem connecting users based on shared workout interests, location, and fitness levels.
+- Integrated Real-Time Networking via Socket.io for instant messaging and workout invites to seamlessly coordinate sessions.
+- Designed a Peer-Matching Algorithm analyzing user preferences to suggest highly compatible workout partners.
+- Implemented a secure permissions system allowing users granular control over their fitness statistics and visibility.
+
+To-Do List Application | Full Stack Developer | February 2026
+Full-Stack (MongoDB, Express, React, Node)
+- Developed a high-performance task management engine featuring full CRUD functionality for seamless task lifecycle management.
+- Engineered optimized state-syncing logic to ensure real-time UI updates, minimizing latency between user actions and database persistence.
+- Adhered to clean code principles, utilizing modular component structures and descriptive naming conventions to ensure maintainability.
+- Designed a minimalist, responsive interface focused on user ergonomics across mobile and desktop devices.
