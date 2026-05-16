@@ -7,12 +7,26 @@ import { Download, ArrowRight, Code, Database, Layout, ExternalLink } from "luci
 
 function Home() {
   const [githubData, setGithubData] = useState(null);
+  const [repos, setRepos] = useState([]);
 
   useEffect(() => {
+    // Fetch User Data
     fetch("https://api.github.com/users/Devashermale")
       .then((res) => res.json())
       .then((data) => setGithubData(data))
       .catch((err) => console.error("Error fetching GitHub data:", err));
+
+    // Fetch Repositories
+    fetch("https://api.github.com/users/Devashermale/repos?sort=updated")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) {
+          // Exclude forks and get the top 6 recently updated projects
+          const bestRepos = data.filter(r => !r.fork).slice(0, 6);
+          setRepos(bestRepos);
+        }
+      })
+      .catch((err) => console.error("Error fetching GitHub repos:", err));
   }, []);
 
   return (
@@ -51,7 +65,7 @@ function Home() {
             <a href="#contact" className="px-8 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-medium rounded-lg shadow-lg shadow-indigo-500/30 transition-all flex items-center gap-2">
               Get in Touch <ArrowRight size={18} />
             </a>
-            <a href="/resume.txt" download="Devidas_Shermale_Resume.txt" className="px-8 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-medium rounded-lg shadow-lg transition-all flex items-center gap-2">
+            <a href="/DevaExperience.pdf" download="DevaExperience.pdf" className="px-8 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-medium rounded-lg shadow-lg transition-all flex items-center gap-2">
               <Download size={18} /> Download Resume
             </a>
           </div>
@@ -92,15 +106,54 @@ function Home() {
             <div className="w-20 h-1 bg-indigo-500 rounded-full"></div>
           </div>
           <div className="md:col-span-8">
+            <p className="text-lg text-slate-400 leading-relaxed mb-6">
+              Detail-oriented Computer Engineering graduate and Certified MERN Stack Developer. Proven ability to build scalable, responsive web applications using MongoDB, Express.js, React, and Node.js. Skilled in AI-assisted development and prompt engineering to optimize code quality and project delivery. Strong foundation in full-stack architecture, secure authentication, and database management.
+            </p>
             <p className="text-lg text-slate-400 leading-relaxed">
-              I am a dedicated Full Stack Developer with a focus on building scalable web applications using the MERN stack. Having recently completed my Diploma in Computer Engineering, I've transitioned from learning the fundamentals to building real-world solutions, including hospital and visitor management systems. I am passionate about writing clean, efficient code and am currently seeking an internship where I can contribute to impactful projects while further honing my skills in modern web development.
+              Currently working as a <strong>Full-Stack Developer Intern at The Entrepreneurship Network</strong>, contributing to scalable web applications and leveraging AI-assisted coding to improve overall development efficiency.
             </p>
           </div>
         </div>
       </div>
 
+      {/* Experience Section */}
+      <div id="experience" className="bg-slate-800/30 py-20 border-y border-slate-800">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Experience</h2>
+            <div className="w-20 h-1 bg-indigo-500 rounded-full mx-auto"></div>
+          </div>
+          
+          <div className="max-w-4xl mx-auto bg-slate-800/80 border border-slate-700 p-8 rounded-2xl hover:-translate-y-1 transition-transform duration-300 shadow-lg">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+              <div>
+                <h3 className="text-2xl font-bold text-white">Full-Stack Developer Intern</h3>
+                <p className="text-lg text-indigo-400 font-medium mt-1">The Entrepreneurship Network</p>
+              </div>
+              <div className="mt-4 md:mt-0 px-4 py-2 bg-slate-900 text-slate-300 rounded-lg border border-slate-700 text-sm font-medium">
+                April 2026 – Present
+              </div>
+            </div>
+            <ul className="space-y-4 text-slate-400">
+              <li className="flex items-start gap-3">
+                <span className="text-indigo-500 mt-1">▹</span>
+                <p>Contributing to the development of scalable web applications using the MERN stack.</p>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-indigo-500 mt-1">▹</span>
+                <p>Collaborating with cross-functional teams to design, test, and deploy new features in an Agile environment.</p>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-indigo-500 mt-1">▹</span>
+                <p>Leveraging AI-assisted coding and prompt engineering to optimize backend logic and improve overall development efficiency.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       {/* Skills Section */}
-      <div id="skills" className="bg-slate-800/30 py-20 border-y border-slate-800">
+      <div id="skills" className="py-20 border-b border-slate-800">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Technical Skills</h2>
@@ -112,7 +165,7 @@ function Home() {
               <Database className="text-indigo-400 w-12 h-12 mb-6" />
               <h3 className="text-xl font-bold text-white mb-4">Backend & Database</h3>
               <div className="flex flex-wrap gap-2">
-                {['Node.js', 'Express.js', 'MongoDB', 'REST APIs'].map((skill) => (
+                {['Node.js', 'Express.js', 'MongoDB', 'REST APIs', 'JWT Auth'].map((skill) => (
                   <span key={skill} className="px-3 py-1 bg-slate-900 text-indigo-300 text-sm font-medium rounded-lg border border-indigo-500/20">{skill}</span>
                 ))}
               </div>
@@ -122,7 +175,7 @@ function Home() {
               <Layout className="text-cyan-400 w-12 h-12 mb-6" />
               <h3 className="text-xl font-bold text-white mb-4">Frontend</h3>
               <div className="flex flex-wrap gap-2">
-                {['React.js', 'Tailwind CSS', 'HTML5', 'CSS3', 'Bootstrap'].map((skill) => (
+                {['React.js', 'JavaScript (ES6+)', 'Tailwind CSS', 'HTML5', 'CSS3', 'Bootstrap'].map((skill) => (
                   <span key={skill} className="px-3 py-1 bg-slate-900 text-cyan-300 text-sm font-medium rounded-lg border border-cyan-500/20">{skill}</span>
                 ))}
               </div>
@@ -130,9 +183,9 @@ function Home() {
 
             <div className="bg-slate-800/80 border border-slate-700 p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
               <Code className="text-pink-400 w-12 h-12 mb-6" />
-              <h3 className="text-xl font-bold text-white mb-4">Languages & Tools</h3>
+              <h3 className="text-xl font-bold text-white mb-4">Tools & AI</h3>
               <div className="flex flex-wrap gap-2">
-                {['JavaScript', 'Git', 'GitHub', 'VS Code', 'Postman'].map((skill) => (
+                {['Prompt Engineering', 'Git', 'GitHub', 'VS Code', 'Postman', 'Vercel', 'Netlify'].map((skill) => (
                   <span key={skill} className="px-3 py-1 bg-slate-900 text-pink-300 text-sm font-medium rounded-lg border border-pink-500/20">{skill}</span>
                 ))}
               </div>
@@ -146,90 +199,52 @@ function Home() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Featured Projects</h2>
           <div className="w-20 h-1 bg-indigo-500 rounded-full mx-auto"></div>
+          <p className="text-slate-400 mt-4">Dynamically fetched from my GitHub</p>
         </div>
 
-        <div className="space-y-12">
-          {/* Project 1 */}
-          <div className="group bg-slate-800/50 border border-slate-700 rounded-2xl p-8 hover:bg-slate-800 transition-colors">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
-              <div>
-                <h3 className="text-2xl font-bold text-white group-hover:text-indigo-400 transition-colors">Visitor Pass Management System</h3>
-                <p className="text-indigo-400 text-sm font-medium mt-1">MERN Stack | March 2026</p>
+        {repos.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {repos.map((repo) => (
+              <div key={repo.id} className="group bg-slate-800/50 border border-slate-700 rounded-2xl p-8 hover:bg-slate-800 transition-colors flex flex-col justify-between shadow-lg">
+                <div>
+                  <div className="flex justify-between items-start mb-4 gap-4">
+                    <h3 className="text-2xl font-bold text-white group-hover:text-indigo-400 transition-colors capitalize leading-tight">
+                      {repo.name.replace(/-/g, ' ')}
+                    </h3>
+                    <div className="flex gap-3">
+                      {repo.homepage && (
+                        <a href={repo.homepage} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors" title="Live Preview">
+                          <ExternalLink size={24} />
+                        </a>
+                      )}
+                      <a href={repo.html_url} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-indigo-400 transition-colors" title="Source Code">
+                        <FontAwesomeIcon icon={faSquareGithub} className="text-2xl" />
+                      </a>
+                    </div>
+                  </div>
+                  <p className="text-indigo-400 text-sm font-medium mb-4">
+                    {repo.language || 'Multiple Languages'} | Last Updated: {new Date(repo.updated_at).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+                  </p>
+                  <p className="text-slate-400 mb-6 leading-relaxed">
+                    {repo.description || "An innovative project developed by Devidas exploring modern web technologies and building scalable solutions."}
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-3 mt-4">
+                  {repo.homepage && (
+                    <a href={repo.homepage} target="_blank" rel="noreferrer" className="px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg shadow-lg transition-all text-sm font-medium flex items-center gap-2">
+                      <Layout size={16} /> Live Demo
+                    </a>
+                  )}
+                  <a href={repo.html_url} target="_blank" rel="noreferrer" className="px-5 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg border border-slate-600 hover:border-slate-500 transition-all text-sm font-medium flex items-center gap-2">
+                    <Code size={16} /> Source Code
+                  </a>
+                </div>
               </div>
-              <a href="https://github.com/Devashermale" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-5 py-2 bg-slate-900 hover:bg-indigo-600 text-white rounded-lg border border-slate-700 hover:border-indigo-500 transition-all">
-                <ExternalLink size={16} /> View Code
-              </a>
-            </div>
-            <ul className="space-y-3 text-slate-400">
-              <li className="flex items-start gap-3">
-                <span className="text-indigo-500 mt-1">▹</span>
-                <span><strong>QR Code Ecosystem:</strong> Implemented secure check-in flow with encrypted QR generation and validation for visitor scheduling.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-indigo-500 mt-1">▹</span>
-                <span><strong>Automated PDF Generation:</strong> Dynamically generated visitor passes with data injection (photo, host name, expiry) using document generation libraries.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-indigo-500 mt-1">▹</span>
-                <span><strong>Real-Time Monitoring Dashboard:</strong> Built live tracking of building occupancy vs expected arrivals using WebSockets for instant updates.</span>
-              </li>
-            </ul>
+            ))}
           </div>
-
-          {/* Project 2 */}
-          <div className="group bg-slate-800/50 border border-slate-700 rounded-2xl p-8 hover:bg-slate-800 transition-colors">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
-              <div>
-                <h3 className="text-2xl font-bold text-white group-hover:text-indigo-400 transition-colors">Workout Buddy</h3>
-                <p className="text-indigo-400 text-sm font-medium mt-1">MERN Stack | February 2026</p>
-              </div>
-              <a href="https://github.com/Devashermale" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-5 py-2 bg-slate-900 hover:bg-indigo-600 text-white rounded-lg border border-slate-700 hover:border-indigo-500 transition-all">
-                <ExternalLink size={16} /> View Code
-              </a>
-            </div>
-            <ul className="space-y-3 text-slate-400">
-              <li className="flex items-start gap-3">
-                <span className="text-indigo-500 mt-1">▹</span>
-                <span><strong>Social Fitness Ecosystem:</strong> Engineered a platform connecting users based on shared workout interests and fitness levels.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-indigo-500 mt-1">▹</span>
-                <span><strong>Real-Time Networking:</strong> Integrated Socket.io for instant messaging and workout invites to coordinate sessions.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-indigo-500 mt-1">▹</span>
-                <span><strong>Peer-Matching Algorithm:</strong> Developed logic to suggest compatible workout partners based on preferences and routine data.</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Project 3 */}
-          <div className="group bg-slate-800/50 border border-slate-700 rounded-2xl p-8 hover:bg-slate-800 transition-colors">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
-              <div>
-                <h3 className="text-2xl font-bold text-white group-hover:text-indigo-400 transition-colors">To-Do List Application</h3>
-                <p className="text-indigo-400 text-sm font-medium mt-1">Full-Stack | February 2026</p>
-              </div>
-              <a href="https://github.com/Devashermale/todo-list" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-5 py-2 bg-slate-900 hover:bg-indigo-600 text-white rounded-lg border border-slate-700 hover:border-indigo-500 transition-all">
-                <ExternalLink size={16} /> View Code
-              </a>
-            </div>
-            <ul className="space-y-3 text-slate-400">
-              <li className="flex items-start gap-3">
-                <span className="text-indigo-500 mt-1">▹</span>
-                <span><strong>Task Management Engine:</strong> Developed high-performance CRUD functionality for seamless lifecycle management of tasks.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-indigo-500 mt-1">▹</span>
-                <span><strong>Optimized State-Syncing:</strong> Ensured real-time UI updates, minimizing latency between user actions and database persistence.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-indigo-500 mt-1">▹</span>
-                <span><strong>Minimalist Interface:</strong> Designed a responsive UI focused on user ergonomics across mobile and desktop devices.</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+        ) : (
+          <div className="text-center text-slate-400">Loading projects from GitHub...</div>
+        )}
       </div>
 
       {/* Contact Section */}

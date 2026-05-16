@@ -13,6 +13,7 @@ function Navbar() {
           <ul className="flex gap-8">
             <li><a className='text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors' href="#">Home</a></li>
             <li><a className='text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors' href="#about">About</a></li>
+            <li><a className='text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors' href="#experience">Experience</a></li>
             <li><a className='text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors' href="#skills">Skills</a></li>
             <li><a className='text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors' href="#projects">Projects</a></li>
             <li><a className='text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors' href="#contact">Contact</a></li>
